@@ -26,7 +26,7 @@
 - [本実験で使うPythonのライブラリ等の使い方説明](https://github.com/lics-nara-wu/lics-exp2-2025/edit/main/README_python.md)
 
 > [!TIP]
-> [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
+> [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
 >
 > 質問等で共有が必要になったときには随時更新します。
 
@@ -45,7 +45,7 @@
 スライドを使って説明します。スライドはLMSで共有します。
 
 ## 2. Pythonの環境設定の呼び出しとライブラリの追加
-[第10回での環境設定](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/10Dec/README.md)が終了しているものとして、それを呼び出します。
+[第10回での環境設定](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/10Dec/README.md)が終了しているものとして、それを呼び出します。
 ```
 EXPDIR=${HOME}/exp2_2025_nlp
 cd ${EXPDIR}
@@ -150,11 +150,11 @@ Scikit-learn で機械学習をする部分は第10回に学んだので、今�
 - どのように特徴量を定義し、抽出するか
 - 分割する／しないのラベルが得られたとき、それをどう利用して分かち書きテキストを得るか
 
-この機能を別ファイル ([`mylib_wordseg.py`](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/17Dec/scripts/mylib_wordseg.py)) に定義された関数内に実装してください。
+この機能を別ファイル ([`mylib_wordseg.py`](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/17Dec/scripts/mylib_wordseg.py)) に定義された関数内に実装してください。
 
 なお、実行するプログラムである以下の二つはテンプレート通りで変更不要です。
-- [`wordseg-train.py`](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/17Dec/scripts/wordseg-train.py): 学習プログラム
-- [`wordseg-predict.py`](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/17Dec/scripts/wordseg-predict.py): 予測プログラム
+- [`wordseg-train.py`](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/17Dec/scripts/wordseg-train.py): 学習プログラム
+- [`wordseg-predict.py`](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/17Dec/scripts/wordseg-predict.py): 予測プログラム
 
 
 ### 5.1. 特徴量の抽出

@@ -26,7 +26,7 @@
 - [本実験で使うPythonのライブラリ等の使い方説明](https://github.com/lics-nara-wu/lics-exp2-2025/edit/main/README_python.md)
 
 > [!TIP]
-> [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
+> [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
 >
 > 質問等で共有が必要になったときには随時更新します。
 
@@ -44,7 +44,7 @@
 スライドを使って説明します。スライドはLMSで共有します。
 
 ## 2. Pythonの環境設定の呼び出し
-[第11回での環境設定](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/17Dec/README.md)が終了しているものとして、それを呼び出します。
+[第11回での環境設定](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/17Dec/README.md)が終了しているものとして、それを呼び出します。
 ```
 EXPDIR=${HOME}/exp2_2025_nlp
 cd ${EXPDIR}
@@ -66,7 +66,7 @@ export LC_ALL=ja_JP.utf8
 スライドを使って説明します。スライドはLMSで共有します。
 
 ## 4. 必要な関数の作成
-[第11回](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/17Dec/README.md)で分かち書きする基本的な仕組みを作ったので、それを改造してより良い分かち書きができないかを検討します。
+[第11回](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/17Dec/README.md)で分かち書きする基本的な仕組みを作ったので、それを改造してより良い分かち書きができないかを検討します。
 - 組み合わせ特徴量
 - 辞書情報に基づく特徴量
 
@@ -76,9 +76,9 @@ cp mylib_wordseg.py mylib_wordseg2.py
 ```
 
 なお、実行するプログラムである以下の三つはテンプレート通りでこれらのファイルについては内容変更不要です（前回から変更があるので名前も変えています）。
-- [`wordseg2-train.py`](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/24Dec/scripts/wordseg2-train.py): 学習プログラム
-- [`wordseg2-predict.py`](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/24Dec/scripts/wordseg2-predict.py): 予測プログラム
-- [`wordseg2-evaluate.py`](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/24Dec/scripts/wordseg2-evaluate.py): 評価プログラム
+- [`wordseg2-train.py`](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/24Dec/scripts/wordseg2-train.py): 学習プログラム
+- [`wordseg2-predict.py`](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/24Dec/scripts/wordseg2-predict.py): 予測プログラム
+- [`wordseg2-evaluate.py`](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/24Dec/scripts/wordseg2-evaluate.py): 評価プログラム
 
 
 ### 4.1. 特徴量の抽出

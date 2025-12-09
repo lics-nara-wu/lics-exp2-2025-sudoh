@@ -26,7 +26,7 @@
 - [本実験で使うPythonのライブラリ等の使い方説明](https://github.com/lics-nara-wu/lics-exp2-2025/edit/main/README_python.md)
 
 > [!TIP]
-> [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
+> [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
 >
 > 質問等で共有が必要になったときには随時更新します。
 
@@ -149,7 +149,7 @@ unalias python3
 ```
 
 ### 4.1 前処理スクリプトの作成
-まず、[前処理用のPythonスクリプト](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/10Dec/scripts/extract_wrime_v2_data.py)のコピーを作成します。
+まず、[前処理用のPythonスクリプト](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/10Dec/scripts/extract_wrime_v2_data.py)のコピーを作成します。
 以下のいずれかの方法で行ってみてください。
 - GitHubの画面を見ながら写経する
 - GitHubの画面で Copy raw file のボタンをクリックしてクリップボードにコピーし、何かのエディタで開いて貼り付ける
@@ -209,7 +209,7 @@ pip3 install tqdm
 - モデルの保存
 
 > [!TIP]
-> [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/10Dec/scripts/wrime2-classify-train.py)を用意していますので参考にしてください。
+> [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/10Dec/scripts/wrime2-classify-train.py)を用意していますので参考にしてください。
 
 ### 5.2 推論用プログラムの作成
 前処理をしたJSON形式のデータと、学習済みの文書分類モデルを入力とし、文書分類の結果を出力するプログラムを作成してください。
@@ -222,7 +222,7 @@ pip3 install tqdm
 - 分類結果の出力
 
 > [!TIP]
-> [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/10Dec/scripts/wrime2-classify-test.py)を用意していますので参考にしてください。
+> [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/10Dec/scripts/wrime2-classify-test.py)を用意していますので参考にしてください。
 
 
 ## 6. 分類結果の評価用プログラムの作成
@@ -234,7 +234,7 @@ pip3 install tqdm
 - 評価値の出力
 
 > [!TIP]
-> [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/10Dec/scripts/wrime2-classify-evaluate.py)を用意していますので参考にしてください。
+> [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/10Dec/scripts/wrime2-classify-evaluate.py)を用意していますので参考にしてください。
 
 
 ## 7. 課題提出（時間内に終わらなければ提出期限までに提出すればOK）
@@ -280,4 +280,4 @@ LMSの「課題（第10回、自然言語処理1）」のところに
 今回、入力文はWRIMEのデータを使っていますが、自分で適当な文を入れて極性判定をすることも可能です。
 (5.2 推論用プログラムの作成)[#52-推論用プログラムの作成]で作成したプログラムを改造して、ファイルを読み込む、標準入力から渡す、等の形で自分で与えた文に対して極性判定をするプログラムを作成してみてください。
 
-分かち書きをする方法は[前処理用のPythonスクリプト](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/10Dec/scripts/extract_wrime_v2_data.py)を参考にしてください。
+分かち書きをする方法は[前処理用のPythonスクリプト](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/10Dec/scripts/extract_wrime_v2_data.py)を参考にしてください。
