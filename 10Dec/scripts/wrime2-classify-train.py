@@ -20,6 +20,8 @@ parser = ArgumentParser()
 ##### parser.add_argument()
 ##### を使って「入力するJSONのファイル名」「出力するモデルのファイル名」を指定する
 #####
+##### 参考：extract_wrime_v2_data.py でも ArgumentParser を使っているので、それに倣うと良い
+#####
 args = parser.parse_args()
 
 ### モデルファイルが既に存在する場合はエラーとしてRuntimeError例外を送出
