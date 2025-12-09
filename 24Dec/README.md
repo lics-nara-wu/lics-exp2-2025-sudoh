@@ -23,10 +23,10 @@
 ## 【再掲】Pythonのリファレンス
 - [Python 3.6ドキュメント](https://docs.python.org/ja/3.6/)
 - [Python 3.6標準ライブラリリファレンス](https://docs.python.org/ja/3.6/library/index.html)
-- [本実験で使うPythonのライブラリ等の使い方説明](https://github.com/lics-nara-wu/lics-exp2-2024/edit/main/README_python.md)
+- [本実験で使うPythonのライブラリ等の使い方説明](https://github.com/lics-nara-wu/lics-exp2-2025/edit/main/README_python.md)
 
 > [!TIP]
-> [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
+> [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
 >
 > 質問等で共有が必要になったときには随時更新します。
 
@@ -44,15 +44,15 @@
 スライドを使って説明します。スライドはLMSで共有します。
 
 ## 2. Pythonの環境設定の呼び出し
-[第11回での環境設定](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/18Dec/README.md)が終了しているものとして、それを呼び出します。
+[第11回での環境設定](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/17Dec/README.md)が終了しているものとして、それを呼び出します。
 ```
-EXPDIR=${HOME}/exp2_2024_nlp
+EXPDIR=${HOME}/exp2_2025_nlp
 cd ${EXPDIR}
 source ${EXPDIR}/.venv/bin/activate
 ```
-`exp_2024_nlp` という仮想環境が有効になっていることを確認してください。
+`exp_2025_nlp` という仮想環境が有効になっていることを確認してください。
 ```
-(exp2_2024_nlp) [sudoh@remote01 exp2_2024_nlp]$
+(exp2_2025_nlp) [sudoh@remote01 exp2_2025_nlp]$
 ```
 
 環境変数の設定をします。
@@ -66,7 +66,7 @@ export LC_ALL=ja_JP.utf8
 スライドを使って説明します。スライドはLMSで共有します。
 
 ## 4. 必要な関数の作成
-[第11回](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/18Dec/README.md)で分かち書きする基本的な仕組みを作ったので、それを改造してより良い分かち書きができないかを検討します。
+[第11回](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/17Dec/README.md)で分かち書きする基本的な仕組みを作ったので、それを改造してより良い分かち書きができないかを検討します。
 - 組み合わせ特徴量
 - 辞書情報に基づく特徴量
 
@@ -76,9 +76,9 @@ cp mylib_wordseg.py mylib_wordseg2.py
 ```
 
 なお、実行するプログラムである以下の三つはテンプレート通りでこれらのファイルについては内容変更不要です（前回から変更があるので名前も変えています）。
-- [`wordseg2-train.py`](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/25Dec/scripts/wordseg2-train.py): 学習プログラム
-- [`wordseg2-predict.py`](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/25Dec/scripts/wordseg2-predict.py): 予測プログラム
-- [`wordseg2-evaluate.py`](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/25Dec/scripts/wordseg2-evaluate.py): 評価プログラム
+- [`wordseg2-train.py`](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/24Dec/scripts/wordseg2-train.py): 学習プログラム
+- [`wordseg2-predict.py`](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/24Dec/scripts/wordseg2-predict.py): 予測プログラム
+- [`wordseg2-evaluate.py`](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/24Dec/scripts/wordseg2-evaluate.py): 評価プログラム
 
 
 ### 4.1. 特徴量の抽出
@@ -91,7 +91,7 @@ import regex as re
 
 import pickle
 
-with open('/export/home/ics/sudoh/Project/Exp2/2024/data/unidic.pkl', 'rb') as rh:
+with open('/export/home/ics/sudoh/Project/Exp2/2025/data/unidic.pkl', 'rb') as rh:
     DICT = pickle.load(rh)
 
 ##### 課題
@@ -137,40 +137,40 @@ with open('/export/home/ics/sudoh/Project/Exp2/2024/data/unidic.pkl', 'rb') as r
 ### 4.2. 学習プログラムの実行
 特徴量抽出関数ができたら以下のプログラムを実行してモデルを作成してみてください。
 ```
-python3 wordseg2-train.py -m wordseg2.model ${EXPDIR}/data/jawiki-20241201-pages-train-tiny.ja.tok.label
+python3 wordseg2-train.py -m wordseg2.model ${EXPDIR}/data/jawiki-20251201-pages-train-tiny.ja.tok.label
 ```
 無事完了したら `wordseg2.model` というファイルができるはずです。
 
 ### 4.3. 予測プログラムの実行
 その後、以下のプログラムを実行し、分かち書きができているか確認してみてください。
 ```
-head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-test.ja | python3 wordseg2-predict.py -m wordseg2.model
+head -n 3 ${EXPDIR}/data/jawiki-20251201-pages-test.ja | python3 wordseg2-predict.py -m wordseg2.model
 ```
 
 ### 4.4. 評価プログラムの実行
 その後、以下のプログラムを実行し、テストデータに対する分かち書きを行います。
 （あまり高速化の工夫を行っていないので、数分かかります）
 ```
-python3 wordseg2-predict.py -m wordseg2.model < ${EXPDIR}/data/jawiki-20241201-pages-test.ja > test2.txt
+python3 wordseg2-predict.py -m wordseg2.model < ${EXPDIR}/data/jawiki-20251201-pages-test.ja > test2.txt
 ```
 
 最後に、以下のプログラムを実行し、精度評価を行ってください。
 ```
-python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20241201-pages-test.ja.tok.label test2.txt
+python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20251201-pages-test.ja.tok.label test2.txt
 ```
 
 前回作成したプログラムで実行した場合との精度も比較してみましょう。
 ```
-python3 wordseg2-predict.py -m wordseg.model < ${EXPDIR}/data/jawiki-20241201-pages-test.ja > test.txt
-python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20241201-pages-test.ja.tok.label test.txt
+python3 wordseg2-predict.py -m wordseg.model < ${EXPDIR}/data/jawiki-20251201-pages-test.ja > test.txt
+python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20251201-pages-test.ja.tok.label test.txt
 ```
 
 ### 4.5. 少し大きな学習データを使った実験
-時間があれば、少し大きな学習データである `jawiki-20241201-pages-train-small.ja.tok.label` を使ったモデルも作ってみてください。
+時間があれば、少し大きな学習データである `jawiki-20251201-pages-train-small.ja.tok.label` を使ったモデルも作ってみてください。
 ```
-python3 wordseg2-train.py -m wordseg2.model2 ${EXPDIR}/data/jawiki-20241201-pages-train-small.ja.tok.label
-python3 wordseg2-predict.py -m wordseg2.model2 < ${EXPDIR}/data/jawiki-20241201-pages-test.ja > test2S.txt
-python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20241201-pages-test.ja.tok.label test2S.txt
+python3 wordseg2-train.py -m wordseg2.model2 ${EXPDIR}/data/jawiki-20251201-pages-train-small.ja.tok.label
+python3 wordseg2-predict.py -m wordseg2.model2 < ${EXPDIR}/data/jawiki-20251201-pages-test.ja > test2S.txt
+python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20251201-pages-test.ja.tok.label test2S.txt
 ```
 
 ## 5. 課題提出（時間内に終わらなければ提出期限までに提出すればOK）

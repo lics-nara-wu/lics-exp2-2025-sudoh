@@ -23,10 +23,10 @@
 ## Pythonのリファレンス
 - [Python 3.6ドキュメント](https://docs.python.org/ja/3.6/)
 - [Python 3.6標準ライブラリリファレンス](https://docs.python.org/ja/3.6/library/index.html)
-- [本実験で使うPythonのライブラリ等の使い方説明](https://github.com/lics-nara-wu/lics-exp2-2024/edit/main/README_python.md)
+- [本実験で使うPythonのライブラリ等の使い方説明](https://github.com/lics-nara-wu/lics-exp2-2025/edit/main/README_python.md)
 
 > [!TIP]
-> [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
+> [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
 >
 > 質問等で共有が必要になったときには随時更新します。
 
@@ -57,12 +57,12 @@ alias python3=/export/home/ics/sudoh/python-3.6.8/bin/python3
 ### 2.1 作業ディレクトリの作成
 まずは今回の実験で利用する作業ディレクトリを作成してください。
 
-名前は任意ですが、仮に `${HOME}/exp2_2024_nlp` として、以下これを `${EXPDIR}` と表すことにします。
+名前は任意ですが、仮に `${HOME}/exp2_2025_nlp` として、以下これを `${EXPDIR}` と表すことにします。
 コマンドライン上で変数として `${EXPDIR}` を定義しておけば、以下はこの名前を使ってアクセスできます。
 （ログアウトすると変数はリセットされてしまうので、再度使う場合は変数定義をやり直してください）
 ```
-mkdir -p ${HOME}/exp2_2024_nlp
-EXPDIR=${HOME}/exp2_2024_nlp
+mkdir -p ${HOME}/exp2_2025_nlp
+EXPDIR=${HOME}/exp2_2025_nlp
 ls -l ${EXPDIR}
 ```
 
@@ -71,9 +71,9 @@ ls -l ${EXPDIR}
 仮想環境の作成にはPython標準の `venv` というライブラリを利用します。
 ```
 cd ${EXPDIR}
-python3 -m venv --prompt exp2_2024_nlp .venv
+python3 -m venv --prompt exp2_2025_nlp .venv
 ```
-これで `${EXPDIR}/.venv` というディレクトリに `exp_2024_nlp` という名前の仮想環境が作成されます。
+これで `${EXPDIR}/.venv` というディレクトリに `exp_2025_nlp` という名前の仮想環境が作成されます。
 
 エラーが出た場合は、一度 `.venv` というディレクトリを消すとうまく行きます。
 ```
@@ -86,15 +86,15 @@ rm -r .venv
 source ${EXPDIR}/.venv/bin/activate
 ```
 `source`はシェル (bash) で設定を読み込むためのコマンドで、これを実行することにより仮想環境で利用するファイルパスなどが設定されます。
-設定が読み込まれると、手元のコマンドラインのプロンプト（入力欄）が以下のように変わり、先ほど作成した `exp_2024_nlp` という仮想環境が有効になっていることが分かります。
+設定が読み込まれると、手元のコマンドラインのプロンプト（入力欄）が以下のように変わり、先ほど作成した `exp_2025_nlp` という仮想環境が有効になっていることが分かります。
 ```
-(exp2_2024_nlp) [sudoh@remote01 exp2_2024_nlp]$
+(exp2_2025_nlp) [sudoh@remote01 exp2_2025_nlp]$
 ```
 
 > [!NOTE]
 > ログアウトすると仮想環境を含めた設定は無効になってしまうので、再度ログインした際には
 > ```
-> EXPDIR=${HOME}/exp_2024_nlp
+> EXPDIR=${HOME}/exp_2025_nlp
 > cd ${EXPDIR}
 > source ${EXPDIR}/.venv/bin/activate
 > ```
@@ -149,16 +149,16 @@ unalias python3
 ```
 
 ### 4.1 前処理スクリプトの作成
-まず、[前処理用のPythonスクリプト](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/scripts/extract_wrime_v2_data.py)のコピーを作成します。
+まず、[前処理用のPythonスクリプト](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/10Dec/scripts/extract_wrime_v2_data.py)のコピーを作成します。
 以下のいずれかの方法で行ってみてください。
 - GitHubの画面を見ながら写経する
 - GitHubの画面で Copy raw file のボタンをクリックしてクリップボードにコピーし、何かのエディタで開いて貼り付ける
-- 須藤のディレクトリにある `/export/home/ics/sudoh/Project/Exp2/2024/scripts/extract_wrime_v2_data.py` をコピーする
+- 須藤のディレクトリにある `/export/home/ics/sudoh/Project/Exp2/2025/scripts/extract_wrime_v2_data.py` をコピーする
 
 このファイルは `${EXPDIR}/scripts/extract_wrime_v2_data.py` として保存します。
 ```
 mkdir -p ${EXPDIR}/scripts
-cp /export/home/ics/sudoh/Project/Exp2/2024/scripts/extract_wrime_v2_data.py ${EXPDIR}/scripts/
+cp /export/home/ics/sudoh/Project/Exp2/2025/scripts/extract_wrime_v2_data.py ${EXPDIR}/scripts/
 ```
 
 ### 4.2 前処理済みデータ格納用ディレクトリの作成
@@ -209,7 +209,7 @@ pip3 install tqdm
 - モデルの保存
 
 > [!TIP]
-> [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/scripts/wrime2-classify-train.py)を用意していますので参考にしてください。
+> [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/10Dec/scripts/wrime2-classify-train.py)を用意していますので参考にしてください。
 
 ### 5.2 推論用プログラムの作成
 前処理をしたJSON形式のデータと、学習済みの文書分類モデルを入力とし、文書分類の結果を出力するプログラムを作成してください。
@@ -222,7 +222,7 @@ pip3 install tqdm
 - 分類結果の出力
 
 > [!TIP]
-> [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/scripts/wrime2-classify-test.py)を用意していますので参考にしてください。
+> [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/10Dec/scripts/wrime2-classify-test.py)を用意していますので参考にしてください。
 
 
 ## 6. 分類結果の評価用プログラムの作成
@@ -234,7 +234,7 @@ pip3 install tqdm
 - 評価値の出力
 
 > [!TIP]
-> [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/scripts/wrime2-classify-evaluate.py)を用意していますので参考にしてください。
+> [プログラムのテンプレート](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/10Dec/scripts/wrime2-classify-evaluate.py)を用意していますので参考にしてください。
 
 
 ## 7. 課題提出（時間内に終わらなければ提出期限までに提出すればOK）
@@ -243,7 +243,7 @@ LMSの「課題（第10回、自然言語処理1）」のところに
 - プログラムの使い方（どのプログラムにどのような引数／オプションを与えて実行するかを最低限記載）を書いたテキストファイル
 
 > [!IMPORTANT]
-> 提出期限は **2024-12-18 (水) 23:59 (日本標準時)** です。
+> 提出期限は **2025-12-17 (水) 23:59 (日本標準時)** です。
 > 
 > 提出期限後の提出も受け付けますが、減点対象です。
 
@@ -280,4 +280,4 @@ LMSの「課題（第10回、自然言語処理1）」のところに
 今回、入力文はWRIMEのデータを使っていますが、自分で適当な文を入れて極性判定をすることも可能です。
 (5.2 推論用プログラムの作成)[#52-推論用プログラムの作成]で作成したプログラムを改造して、ファイルを読み込む、標準入力から渡す、等の形で自分で与えた文に対して極性判定をするプログラムを作成してみてください。
 
-分かち書きをする方法は[前処理用のPythonスクリプト](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/scripts/extract_wrime_v2_data.py)を参考にしてください。
+分かち書きをする方法は[前処理用のPythonスクリプト](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/10Dec/scripts/extract_wrime_v2_data.py)を参考にしてください。

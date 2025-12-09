@@ -23,10 +23,10 @@
 ## 【再掲】Pythonのリファレンス
 - [Python 3.6ドキュメント](https://docs.python.org/ja/3.6/)
 - [Python 3.6標準ライブラリリファレンス](https://docs.python.org/ja/3.6/library/index.html)
-- [本実験で使うPythonのライブラリ等の使い方説明](https://github.com/lics-nara-wu/lics-exp2-2024/edit/main/README_python.md)
+- [本実験で使うPythonのライブラリ等の使い方説明](https://github.com/lics-nara-wu/lics-exp2-2025/edit/main/README_python.md)
 
 > [!TIP]
-> [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
+> [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
 >
 > 質問等で共有が必要になったときには随時更新します。
 
@@ -45,15 +45,15 @@
 スライドを使って説明します。スライドはLMSで共有します。
 
 ## 2. Pythonの環境設定の呼び出しとライブラリの追加
-[第10回での環境設定](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/11Dec/README.md)が終了しているものとして、それを呼び出します。
+[第10回での環境設定](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/10Dec/README.md)が終了しているものとして、それを呼び出します。
 ```
-EXPDIR=${HOME}/exp2_2024_nlp
+EXPDIR=${HOME}/exp2_2025_nlp
 cd ${EXPDIR}
 source ${EXPDIR}/.venv/bin/activate
 ```
-`exp_2024_nlp` という仮想環境が有効になっていることを確認してください。
+`exp_2025_nlp` という仮想環境が有効になっていることを確認してください。
 ```
-(exp2_2024_nlp) [sudoh@remote01 exp2_2024_nlp]$
+(exp2_2025_nlp) [sudoh@remote01 exp2_2025_nlp]$
 ```
 
 環境変数の設定をします。
@@ -73,7 +73,7 @@ pip3 install regex
 
 ## 4. 今回の実験用データの取得
 今回の実験のために用意したデータを取得します。
-このデータは [Wikipedia日本語版のダンプデータの2024年12月01日版](https://dumps.wikimedia.org/jawiki/20241201/) をもとにしたものです。
+このデータは [Wikipedia日本語版のダンプデータの2025年12月01日版](https://dumps.wikimedia.org/jawiki/20251201/) をもとにしたものです。
 
 テキストを取り出し、形態素解析器 [MeCab](https://taku910.github.io/mecab/) の [python3版](https://pypi.org/project/mecab-python3/) を利用して前処理を行っています。
 > [!NOTE]
@@ -82,17 +82,17 @@ pip3 install regex
 データのサイズがそこそこ大きいので、実際に全部コピーをするとディスク容量を浪費してしまいます。
 そのため、シンボリックリンク（ファイルの参照先情報を持った特殊なファイル）を作成します。
 ```
-ln -s /export/home/ics/sudoh/Project/Exp2/2024/data/jawiki-20241201-pages-* ${EXPDIR}/data/
+ln -s /export/home/ics/sudoh/Project/Exp2/2025/data/jawiki-20251201-pages-* ${EXPDIR}/data/
 ```
 
 ### 4.1. データファイルについて
 今回実験用に4種類のデータを3つの形式で用意しています。
 
 [種類]
-- `jawiki-20241201-pages-train`: 学習データ（大量, 400万行以上）
-- `jawiki-20241201-pages-train-small`: 学習データ（少量, 30,000行）
-- `jawiki-20241201-pages-train-tiny`: 学習データ（極少量, 3,000行）：動作テスト用
-- `jawiki-20241201-pages-test`: 評価データ（約40,000行）
+- `jawiki-20251201-pages-train`: 学習データ（大量, 400万行以上）
+- `jawiki-20251201-pages-train-small`: 学習データ（少量, 30,000行）
+- `jawiki-20251201-pages-train-tiny`: 学習データ（極少量, 3,000行）：動作テスト用
+- `jawiki-20251201-pages-test`: 評価データ（約40,000行）
 
 [形式]
 - `.ja`: 分かち書きされていないもの
@@ -104,7 +104,7 @@ ln -s /export/home/ics/sudoh/Project/Exp2/2024/data/jawiki-20241201-pages-* ${EX
 
 まず学習データの分かち書きされていないものを
 ```
-head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-train.ja
+head -n 3 ${EXPDIR}/data/jawiki-20251201-pages-train.ja
 ```
 で確認してみます。以下のようになるはずです。
 ```
@@ -115,7 +115,7 @@ head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-train.ja
 
 次に分かち書きされているものを
 ```
-head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-train.ja.tok
+head -n 3 ${EXPDIR}/data/jawiki-20251201-pages-train.ja.tok
 ```
 で確認してみます。以下のようになるはずです。
 ```
@@ -127,7 +127,7 @@ head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-train.ja.tok
 
 最後に分かち書きのラベルがついたものを見てみます。
 ```
-head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-train.ja.tok.label
+head -n 3 ${EXPDIR}/data/jawiki-20251201-pages-train.ja.tok.label
 ```
 で確認すると以下のようになるはずです。
 ```
@@ -150,11 +150,11 @@ Scikit-learn で機械学習をする部分は第10回に学んだので、今�
 - どのように特徴量を定義し、抽出するか
 - 分割する／しないのラベルが得られたとき、それをどう利用して分かち書きテキストを得るか
 
-この機能を別ファイル ([`mylib_wordseg.py`](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/18Dec/scripts/mylib_wordseg.py)) に定義された関数内に実装してください。
+この機能を別ファイル ([`mylib_wordseg.py`](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/17Dec/scripts/mylib_wordseg.py)) に定義された関数内に実装してください。
 
 なお、実行するプログラムである以下の二つはテンプレート通りで変更不要です。
-- [`wordseg-train.py`](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/18Dec/scripts/wordseg-train.py): 学習プログラム
-- [`wordseg-predict.py`](https://github.com/lics-nara-wu/lics-exp2-2024/blob/main/18Dec/scripts/wordseg-predict.py): 予測プログラム
+- [`wordseg-train.py`](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/17Dec/scripts/wordseg-train.py): 学習プログラム
+- [`wordseg-predict.py`](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/17Dec/scripts/wordseg-predict.py): 予測プログラム
 
 
 ### 5.1. 特徴量の抽出
@@ -173,7 +173,7 @@ Scikit-learn で機械学習をする部分は第10回に学んだので、今�
 ### 5.2. 学習プログラムの実行
 特徴量抽出関数ができたら以下のプログラムを実行してモデルを作成してみてください。
 ```
-python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20241201-pages-train-tiny.ja.tok.label
+python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20251201-pages-train-tiny.ja.tok.label
 ```
 無事完了したら `wordseg.model` というファイルができるはずです。
 
@@ -181,7 +181,7 @@ python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20241201-pages-t
 >もしこのモデルでうまく分割ができなかったら、もう少しデータ量の多い状態で学習させてみましょう。
 >`wordseg2.model`という別のモデルファイル名にしてみます。
 >```
->python3 wordseg-train.py -m wordseg2.model ${EXPDIR}/data/jawiki-20241201-pages-train-small.ja.tok.label
+>python3 wordseg-train.py -m wordseg2.model ${EXPDIR}/data/jawiki-20251201-pages-train-small.ja.tok.label
 >```
 
 ### 5.3. 分かち書きの実装
@@ -191,7 +191,7 @@ python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20241201-pages-t
 ### 5.4. 予測プログラムの実行
 分かち書き関数ができたら以下のプログラムを実行し、分かち書きができているか確認してみてください（精度面はあまり期待できないですが）。
 ```
-head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-test.ja | python3 wordseg-predict.py -m wordseg.model
+head -n 3 ${EXPDIR}/data/jawiki-20251201-pages-test.ja | python3 wordseg-predict.py -m wordseg.model
 ```
 
 ## 6. 課題提出（時間内に終わらなければ提出期限までに提出すればOK）
@@ -199,6 +199,6 @@ LMSの「課題（第11回、自然言語処理2）」のところに以下を�
 - 作成したプログラム（`mylib_wordseg.py`のみ）
 
 > [!IMPORTANT]
-> 提出期限は **2024-12-25 (水) 23:59 (日本標準時)** です。
+> 提出期限は **2025-12-25 (水) 23:59 (日本標準時)** です。
 > 
 > 提出期限後の提出も受け付けますが、減点対象です。
