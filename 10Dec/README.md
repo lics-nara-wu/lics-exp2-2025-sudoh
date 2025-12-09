@@ -140,12 +140,6 @@ pip3 install unidic-lite
 >
 > を遵守する必要があります。したがって、前処理済みのデータや、学習したモデルを配布することができません。
 
-### 4.0 Python3のエイリアスの解除
-`python3`のaliasが邪魔をするようなので、以下のコマンドでaliasを解除する
-```
-unalias python3
-```
-
 ### 4.1 前処理スクリプトの作成
 まず、[前処理用のPythonスクリプト](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/10Dec/scripts/extract_wrime_v2_data.py)のコピーを作成します。
 以下のいずれかの方法で行ってみてください。
