@@ -58,12 +58,13 @@ alias python3=/export/home/ics/sudoh/python-3.6.8/bin/python3
 まずは今回の実験で利用する作業ディレクトリを作成してください。
 
 名前は任意ですが、仮に `${HOME}/exp2_2025_nlp` として、以下これを `${EXPDIR}` と表すことにします。
-コマンドライン上で変数として `${EXPDIR}` を定義しておけば、以下はこの名前を使ってアクセスできます。
-（ログアウトすると変数はリセットされてしまうので、再度使う場合は変数定義をやり直してください）
 ```
 mkdir -p ${HOME}/exp2_2025_nlp
+```
+
+コマンドライン上で変数として `${EXPDIR}` を定義しておけば、以下はこの名前を使ってアクセスできます。
+```
 EXPDIR=${HOME}/exp2_2025_nlp
-ls -l ${EXPDIR}
 ```
 
 ### 2.2 作業ディレクトリでのPython仮想環境の作成
@@ -101,7 +102,8 @@ source ${EXPDIR}/.venv/bin/activate
 > を実行するようにしてください。
 > 
 > 一度インストールしたライブラリは仮想環境に残っているので、再度インストールする必要はありません。
->
+
+> [!NOTE]
 > ログアウトはしないが仮想環境は無効にしたい、というときには
 > ```
 > deactivate
@@ -153,12 +155,12 @@ unalias python3
 以下のいずれかの方法で行ってみてください。
 - GitHubの画面を見ながら写経する
 - GitHubの画面で Copy raw file のボタンをクリックしてクリップボードにコピーし、何かのエディタで開いて貼り付ける
-- 須藤のディレクトリにある `/export/home/ics/sudoh/Project/Exp2/2025/scripts/extract_wrime_v2_data.py` をコピーする
+- 須藤のディレクトリにある `/export/home/ics/sudoh/Project/Exp2/2024/scripts/extract_wrime_v2_data.py` をコピーする
 
 このファイルは `${EXPDIR}/scripts/extract_wrime_v2_data.py` として保存します。
 ```
 mkdir -p ${EXPDIR}/scripts
-cp /export/home/ics/sudoh/Project/Exp2/2025/scripts/extract_wrime_v2_data.py ${EXPDIR}/scripts/
+cp /export/home/ics/sudoh/Project/Exp2/2024/scripts/extract_wrime_v2_data.py ${EXPDIR}/scripts/
 ```
 
 ### 4.2 前処理済みデータ格納用ディレクトリの作成
