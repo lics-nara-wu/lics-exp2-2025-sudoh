@@ -49,10 +49,6 @@
 スライドを使って説明します。スライドはLMSで共有します。
 
 ## 2. Pythonの環境設定
-端末室のPythonでは動かないようなので、別のPythonを用意しました。
-```
-alias python3=/export/home/ics/sudoh/python-3.6.8/bin/python3
-```
 
 ### 2.1 作業ディレクトリの作成
 まずは今回の実験で利用する作業ディレクトリを作成してください。
