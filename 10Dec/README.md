@@ -182,6 +182,11 @@ python3 ${EXPDIR}/scripts/extract_wrime_v2_data.py -t ${EXPDIR}/data/wrime_v2_se
 ```
 
 実行の結果、`${EXPDIR}/data/wrime_v2_sentiment.tok.json` というファイルが生成されるはずです。
+
+実験室のLinuxのターミナルはデフォルトの文字コードが EUC-JP になっているので、これを UTF-8 に変更しないとターミナルでファイルの中身が文字化けしてしまいます。
+ターミナルのメニューで `ターミナル(T) → 文字エンコーディング(E) → Unicode → UTF-8`
+の順にクリックして、文字コードを変更してください。
+
 次のコマンドで生成されたファイルの先頭を見ることができます。
 ```
 head ${EXPDIR}/data/wrime_v2_sentiment.tok.json
