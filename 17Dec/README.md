@@ -73,26 +73,26 @@ pip3 install regex
 
 ## 4. 今回の実験用データの取得
 今回の実験のために用意したデータを取得します。
-このデータは [Wikipedia日本語版のダンプデータの2025年12月01日版](https://dumps.wikimedia.org/jawiki/20251201/) をもとにしたものです。
+このデータは [Wikipedia日本語版のダンプデータの2024年12月01日版](https://dumps.wikimedia.org/jawiki/20241201/) をもとにしたものです。
 
 テキストを取り出し、形態素解析器 [MeCab](https://taku910.github.io/mecab/) の [python3版](https://pypi.org/project/mecab-python3/) を利用して前処理を行っています。
 > [!NOTE]
-> このデータは [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) でライセンスされていますので、
+> このデータは [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) でライセンスされていますので、ライセンス明示の上で再配布しています。
 
 データのサイズがそこそこ大きいので、実際に全部コピーをするとディスク容量を浪費してしまいます。
 そのため、シンボリックリンク（ファイルの参照先情報を持った特殊なファイル）を作成します。
 ```
-ln -s /export/home/ics/sudoh/Project/Exp2/2025/data/jawiki-20251201-pages-* ${EXPDIR}/data/
+ln -s /export/home/ics/sudoh/Project/Exp2/2025/data/jawiki-20241201-pages-* ${EXPDIR}/data/
 ```
 
 ### 4.1. データファイルについて
 今回実験用に4種類のデータを3つの形式で用意しています。
 
 [種類]
-- `jawiki-20251201-pages-train`: 学習データ（大量, 400万行以上）
-- `jawiki-20251201-pages-train-small`: 学習データ（少量, 30,000行）
-- `jawiki-20251201-pages-train-tiny`: 学習データ（極少量, 3,000行）：動作テスト用
-- `jawiki-20251201-pages-test`: 評価データ（約40,000行）
+- `jawiki-20241201-pages-train`: 学習データ（大量, 400万行以上）
+- `jawiki-20241201-pages-train-small`: 学習データ（少量, 30,000行）
+- `jawiki-20241201-pages-train-tiny`: 学習データ（極少量, 3,000行）：動作テスト用
+- `jawiki-20241201-pages-test`: 評価データ（約40,000行）
 
 [形式]
 - `.ja`: 分かち書きされていないもの
@@ -104,7 +104,7 @@ ln -s /export/home/ics/sudoh/Project/Exp2/2025/data/jawiki-20251201-pages-* ${EX
 
 まず学習データの分かち書きされていないものを
 ```
-head -n 3 ${EXPDIR}/data/jawiki-20251201-pages-train.ja
+head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-train.ja
 ```
 で確認してみます。以下のようになるはずです。
 ```
@@ -115,7 +115,7 @@ head -n 3 ${EXPDIR}/data/jawiki-20251201-pages-train.ja
 
 次に分かち書きされているものを
 ```
-head -n 3 ${EXPDIR}/data/jawiki-20251201-pages-train.ja.tok
+head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-train.ja.tok
 ```
 で確認してみます。以下のようになるはずです。
 ```
@@ -127,7 +127,7 @@ head -n 3 ${EXPDIR}/data/jawiki-20251201-pages-train.ja.tok
 
 最後に分かち書きのラベルがついたものを見てみます。
 ```
-head -n 3 ${EXPDIR}/data/jawiki-20251201-pages-train.ja.tok.label
+head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-train.ja.tok.label
 ```
 で確認すると以下のようになるはずです。
 ```
@@ -173,7 +173,7 @@ Scikit-learn で機械学習をする部分は第10回に学んだので、今�
 ### 5.2. 学習プログラムの実行
 特徴量抽出関数ができたら以下のプログラムを実行してモデルを作成してみてください。
 ```
-python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20251201-pages-train-tiny.ja.tok.label
+python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20241201-pages-train-tiny.ja.tok.label
 ```
 無事完了したら `wordseg.model` というファイルができるはずです。
 
@@ -181,7 +181,7 @@ python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20251201-pages-t
 >もしこのモデルでうまく分割ができなかったら、もう少しデータ量の多い状態で学習させてみましょう。
 >`wordseg2.model`という別のモデルファイル名にしてみます。
 >```
->python3 wordseg-train.py -m wordseg2.model ${EXPDIR}/data/jawiki-20251201-pages-train-small.ja.tok.label
+>python3 wordseg-train.py -m wordseg2.model ${EXPDIR}/data/jawiki-20241201-pages-train-small.ja.tok.label
 >```
 
 ### 5.3. 分かち書きの実装
@@ -191,7 +191,7 @@ python3 wordseg-train.py -m wordseg.model ${EXPDIR}/data/jawiki-20251201-pages-t
 ### 5.4. 予測プログラムの実行
 分かち書き関数ができたら以下のプログラムを実行し、分かち書きができているか確認してみてください（精度面はあまり期待できないですが）。
 ```
-head -n 3 ${EXPDIR}/data/jawiki-20251201-pages-test.ja | python3 wordseg-predict.py -m wordseg.model
+head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-test.ja | python3 wordseg-predict.py -m wordseg.model
 ```
 
 ## 6. 課題提出（時間内に終わらなければ提出期限までに提出すればOK）
@@ -199,6 +199,6 @@ LMSの「課題（第11回、自然言語処理2）」のところに以下を�
 - 作成したプログラム（`mylib_wordseg.py`のみ）
 
 > [!IMPORTANT]
-> 提出期限は **2025-12-25 (水) 23:59 (日本標準時)** です。
+> 提出期限は **2025-12-24 (水) 23:59 (日本標準時)** です。
 > 
 > 提出期限後の提出も受け付けますが、減点対象です。
