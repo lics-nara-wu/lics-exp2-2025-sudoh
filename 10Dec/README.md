@@ -23,7 +23,7 @@
 ## Pythonのリファレンス
 - [Python 3.6ドキュメント](https://docs.python.org/ja/3.6/)
 - [Python 3.6標準ライブラリリファレンス](https://docs.python.org/ja/3.6/library/index.html)
-- [本実験で使うPythonのライブラリ等の使い方説明](https://github.com/lics-nara-wu/lics-exp2-2025/blob/main/README_python.md)
+- [本実験で使うPythonのライブラリ等の使い方説明](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/README_python.md)
 
 > [!TIP]
 > [Pythonの機能についての説明](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/README_python.md)にこの実験で使うPythonの機能の説明を記載します。
