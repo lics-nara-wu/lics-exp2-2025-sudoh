@@ -177,6 +177,10 @@ python3 ${EXPDIR}/scripts/extract_wrime_v2_data.py -t ${EXPDIR}/data/wrime_v2_se
 ```
 
 実行の結果、`${EXPDIR}/data/wrime_v2_sentiment.tok.json` というファイルが生成されるはずです。
+次のコマンドで生成されたファイルの先頭を見ることができます。
+```
+head ${EXPDIR}/data/wrime_v2_sentiment.tok.json
+```
 
 この前処理スクリプトでは、必要のないデータを捨て、文と、その文を書いた人の感情極性を表す数値 (2, 1, 0, -1, -2) のみを残すようにしています。
 
