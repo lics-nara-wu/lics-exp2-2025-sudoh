@@ -6,6 +6,7 @@
 - (2) [scikit-learn](https://github.com/scikit-learn/scikit-learn)を使った機械学習の基礎
 - (3) 機械学習による日本語文書分類
 - (4) 機械学習による日本語の分かち書き
+
 を学びます。
 
 第11回と第12回では (4) を行います。
