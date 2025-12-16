@@ -62,6 +62,7 @@ def apply_wordseg (line, label_list):
     return line_wordseg
 
 
+##### これ以下の部分は原則変更不要
 def extract_features_from_labeled (line):
     """ ラベルつきの文字列から、単語分割のための特徴量文字列のリストとラベルのリストを返す（学習時用）
     """
