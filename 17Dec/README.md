@@ -151,7 +151,7 @@ Scikit-learn で機械学習をする部分は第10回に学んだので、今�
 - どのように特徴量を定義し、抽出するか
 - 分割する／しないのラベルが得られたとき、それをどう利用して分かち書きテキストを得るか
 
-この機能を別ファイル ([`mylib_wordseg.py`](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/17Dec/scripts/mylib_wordseg.py)) に定義された関数内に実装してください。
+この機能を別ファイルに記載のテンプレート ([`mylib_wordseg.py`](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/17Dec/scripts/mylib_wordseg.py)) に定義された関数内に実装してください。
 
 なお、実行するプログラムである以下の二つはテンプレート通りで変更不要です。
 - [`wordseg-train.py`](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/17Dec/scripts/wordseg-train.py): 学習プログラム
@@ -170,6 +170,8 @@ Scikit-learn で機械学習をする部分は第10回に学んだので、今�
 というようなことが考えられます。
 
 `mylib_wordseg.py` の `extract_features` という関数を自分で編集し、有用そうな特徴量を追加してみてください。
+特徴量を文字列で表現し、それをリストに追加していく形で任意の数の特徴量を定義・利用できます。
+テンプレートに例が記載されていますので、それを見ながらまず簡単なものを作り、そこからいろいろ工夫を加えていってください。
 
 ### 5.2. 学習プログラムの実行
 特徴量抽出関数ができたら以下のプログラムを実行してモデルを作成してみてください。
