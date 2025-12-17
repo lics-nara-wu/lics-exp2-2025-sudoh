@@ -83,7 +83,7 @@ pip3 install regex
 データのサイズがそこそこ大きいので、実際に全部コピーをするとディスク容量を浪費してしまいます。
 そのため、シンボリックリンク（ファイルの参照先情報を持った特殊なファイル）を作成します。
 ```
-ln -s /export/home/ics/sudoh/Project/Exp2/2025/data/jawiki-20241201-pages-* ${EXPDIR}/data/
+ln -s /export/home/ics/sudoh/Project/Exp2/2024/data/jawiki-20241201-pages-* ${EXPDIR}/data/
 ```
 
 ### 4.1. データファイルについて
