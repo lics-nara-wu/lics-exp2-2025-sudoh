@@ -91,7 +91,7 @@ import regex as re
 
 import pickle
 
-with open('/export/home/ics/sudoh/Project/Exp2/2025/data/unidic.pkl', 'rb') as rh:
+with open('/export/home/ics/sudoh/Project/Exp2/2024/data/unidic.pkl', 'rb') as rh:
     DICT = pickle.load(rh)
 
 ##### 課題
