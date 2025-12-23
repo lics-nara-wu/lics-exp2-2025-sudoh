@@ -161,8 +161,8 @@ python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20251201-pages-test.ja.tok
 
 前回作成したプログラムで実行した場合との精度も比較してみましょう。
 ```
-python3 wordseg2-predict.py -m wordseg.model < ${EXPDIR}/data/jawiki-20251201-pages-test.ja > test.txt
-python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20251201-pages-test.ja.tok.label test.txt
+python3 wordseg-predict.py -m wordseg.model < ${EXPDIR}/data/jawiki-20251201-pages-test.ja > test.txt
+python3 wordseg-evaluate.py -r ${EXPDIR}/data/jawiki-20251201-pages-test.ja.tok.label test.txt
 ```
 
 ### 4.5. 少し大きな学習データを使った実験
@@ -178,7 +178,7 @@ LMSの「課題（第12回、自然言語処理2）」のところに以下を�
 - 作成したプログラム（`mylib_wordseg2.py`のみ）
 
 > [!IMPORTANT]
-> 提出期限は **2025-01-08 (水) 23:59 (日本標準時)** です。
+> 提出期限は **2025-01-09 (金) 23:59 (日本標準時)** です。
 > 
 > 提出期限後の提出も受け付けますが、減点対象です。
 
