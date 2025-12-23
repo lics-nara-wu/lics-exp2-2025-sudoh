@@ -9,5 +9,5 @@
 ## 第11回 2025-12-17
 [第11回の内容](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/17Dec/README.md)
 
-## 第12回 2025-12-24（調整中）
+## 第12回 2025-12-24
 [第12回の内容](https://github.com/lics-nara-wu/lics-exp2-2025-sudoh/blob/main/24Dec/README.md)
