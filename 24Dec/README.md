@@ -162,7 +162,7 @@ python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20241201-pages-test.ja.tok
 前回作成したプログラムで実行した場合との精度も比較してみましょう。
 ```
 python3 wordseg-predict.py -m wordseg.model < ${EXPDIR}/data/jawiki-20241201-pages-test.ja > test.txt
-python3 wordseg-evaluate.py -r ${EXPDIR}/data/jawiki-20241201-pages-test.ja.tok.label test.txt
+python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20241201-pages-test.ja.tok.label test.txt
 ```
 
 ### 4.5. 少し大きな学習データを使った実験
