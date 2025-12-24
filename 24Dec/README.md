@@ -137,40 +137,40 @@ with open('/export/home/ics/sudoh/Project/Exp2/2024/data/unidic.pkl', 'rb') as r
 ### 4.2. 学習プログラムの実行
 特徴量抽出関数ができたら以下のプログラムを実行してモデルを作成してみてください。
 ```
-python3 wordseg2-train.py -m wordseg2.model ${EXPDIR}/data/jawiki-20251201-pages-train-tiny.ja.tok.label
+python3 wordseg2-train.py -m wordseg2.model ${EXPDIR}/data/jawiki-20241201-pages-train-tiny.ja.tok.label
 ```
 無事完了したら `wordseg2.model` というファイルができるはずです。
 
 ### 4.3. 予測プログラムの実行
 その後、以下のプログラムを実行し、分かち書きができているか確認してみてください。
 ```
-head -n 3 ${EXPDIR}/data/jawiki-20251201-pages-test.ja | python3 wordseg2-predict.py -m wordseg2.model
+head -n 3 ${EXPDIR}/data/jawiki-20241201-pages-test.ja | python3 wordseg2-predict.py -m wordseg2.model
 ```
 
 ### 4.4. 評価プログラムの実行
 その後、以下のプログラムを実行し、テストデータに対する分かち書きを行います。
 （あまり高速化の工夫を行っていないので、数分かかります）
 ```
-python3 wordseg2-predict.py -m wordseg2.model < ${EXPDIR}/data/jawiki-20251201-pages-test.ja > test2.txt
+python3 wordseg2-predict.py -m wordseg2.model < ${EXPDIR}/data/jawiki-20241201-pages-test.ja > test2.txt
 ```
 
 最後に、以下のプログラムを実行し、精度評価を行ってください。
 ```
-python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20251201-pages-test.ja.tok.label test2.txt
+python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20241201-pages-test.ja.tok.label test2.txt
 ```
 
 前回作成したプログラムで実行した場合との精度も比較してみましょう。
 ```
-python3 wordseg-predict.py -m wordseg.model < ${EXPDIR}/data/jawiki-20251201-pages-test.ja > test.txt
-python3 wordseg-evaluate.py -r ${EXPDIR}/data/jawiki-20251201-pages-test.ja.tok.label test.txt
+python3 wordseg-predict.py -m wordseg.model < ${EXPDIR}/data/jawiki-20241201-pages-test.ja > test.txt
+python3 wordseg-evaluate.py -r ${EXPDIR}/data/jawiki-20241201-pages-test.ja.tok.label test.txt
 ```
 
 ### 4.5. 少し大きな学習データを使った実験
-時間があれば、少し大きな学習データである `jawiki-20251201-pages-train-small.ja.tok.label` を使ったモデルも作ってみてください。
+時間があれば、少し大きな学習データである `jawiki-20241201-pages-train-small.ja.tok.label` を使ったモデルも作ってみてください。
 ```
-python3 wordseg2-train.py -m wordseg2.model2 ${EXPDIR}/data/jawiki-20251201-pages-train-small.ja.tok.label
-python3 wordseg2-predict.py -m wordseg2.model2 < ${EXPDIR}/data/jawiki-20251201-pages-test.ja > test2S.txt
-python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20251201-pages-test.ja.tok.label test2S.txt
+python3 wordseg2-train.py -m wordseg2.model2 ${EXPDIR}/data/jawiki-20241201-pages-train-small.ja.tok.label
+python3 wordseg2-predict.py -m wordseg2.model2 < ${EXPDIR}/data/jawiki-20241201-pages-test.ja > test2S.txt
+python3 wordseg2-evaluate.py -r ${EXPDIR}/data/jawiki-20241201-pages-test.ja.tok.label test2S.txt
 ```
 
 ## 5. 課題提出（時間内に終わらなければ提出期限までに提出すればOK）
